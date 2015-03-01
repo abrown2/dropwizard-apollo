@@ -1,14 +1,15 @@
 package com.disney.apollo.dw;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
-import io.dropwizard.db.DataSourceFactory;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-public class ExampleConfiguration {
+public class ExampleConfiguration extends Configuration {
 
 	@NotEmpty
     private String template;
