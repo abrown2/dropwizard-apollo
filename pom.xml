@@ -129,6 +129,7 @@
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <mainClass>com.disney.apollo.dw.ExampleApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
