@@ -7,8 +7,10 @@ import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import com.disney.apollo.dw.dao.ClientDAO;
 import com.disney.apollo.dw.dao.ProductDAO;
 import com.disney.apollo.dw.resources.ApplicationResource;
+import com.disney.apollo.dw.resources.ClientResource;
 import com.disney.apollo.dw.resources.ProductResource;
 
 public class ExampleApplication extends Application<ExampleConfiguration> {
@@ -34,8 +36,12 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 
 		final DBIFactory factory = new DBIFactory();
 		final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "apollo-ds");
-		final ProductDAO dao = jdbi.onDemand(ProductDAO.class);
-		environment.jersey().register(new ProductResource(dao));
+		final ProductDAO productDao = jdbi.onDemand(ProductDAO.class);
+		environment.jersey().register(new ProductResource(productDao));
+		
+		final ClientDAO clientDao = jdbi.onDemand(ClientDAO.class);
+		environment.jersey().register(new ClientResource(clientDao));
+		
 	}
 
 }
