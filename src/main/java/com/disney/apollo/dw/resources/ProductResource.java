@@ -30,9 +30,14 @@ public class ProductResource {
 	 
 	    @GET
 	    @Path("/title/{productId}")
-	    @Produces(MediaType.TEXT_HTML)
-	    public String getPersonViewFreemarker(@PathParam("productId") LongParam productId) {
+	    public String getProducTitle(@PathParam("productId") LongParam productId) {
 	        return productDAO.getProductTitle(productId.get());
+	    }
+	    
+	    @GET
+	    @Path("/details/{productId}")
+	    public Product getProductDetails(@PathParam("productId") LongParam productId) {
+	        return productDAO.getProductDetails(productId.get());
 	    }
 	 
 }

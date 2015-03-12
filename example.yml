@@ -56,4 +56,16 @@ server:
   adminConnectors:
     - type: http
       port: 8091
+      
+      
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: /tmp/log/myapplication.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: /tmp/log/myapplication-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
    
