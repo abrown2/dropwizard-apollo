@@ -30,6 +30,10 @@ public class Client {
 	private String dataProtectionFlag;
 	private String organisationNotes;
 	
+	public Client() {
+		
+	};
+	
 	public Client( Long organisationId,
 				 Integer status,
 				 Long agentOrganisationId,
